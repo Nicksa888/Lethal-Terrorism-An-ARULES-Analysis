@@ -1,5 +1,5 @@
 
-# This code presents a rule based analysis of lethal terrorism since 1970. Several rule based algorithms feature, including ARules, C5.0
+# This code presents a rule based analysis of lethal terrorism since 1970. 
 
 #########################
 #########################
@@ -36,7 +36,7 @@ suppressPackageStartupMessages(
 ###############################
 ###############################
 
-setwd("C:/Final Data Sets/Trinity College PhD 2021/GTD Data")
+setwd("")
 
 #####################
 #####################
@@ -78,7 +78,8 @@ GTDDTS <- GTDDT %>% dplyr::filter(specificity == 1)
 
 library(data.table) # for set.names function
 
-setnames(GTDDTS, old = c("iyear", "imonth", "provstate", "city",    "attacktype1_txt", "gname", "targtype1_txt", "weaptype1_txt", "nkill", "nwound"), new = c("Year", "Month", "Province", "City", "Attack", "Group", "Target", "Weapon", "Dead", "Wounded"))
+setnames(GTDDTS, old = c("iyear", "imonth", "provstate", "city",    "attacktype1_txt", "gname", "targtype1_txt", "weaptype1_txt", "nkill", "nwound"), 
+         new = c("Year", "Month", "Province", "City", "Attack", "Group", "Target", "Weapon", "Dead", "Wounded"))
 
 #################
 #################
@@ -191,7 +192,9 @@ arules::itemFrequencyPlot(GTDDTS_FCS_T,
 
 # Explosives Weapon Relative
 
-# Here, we select explosives weapons and plot the relative item frequency for such a weapon and lethal attacks. The black distribution line indicates the proportion of items when all weapon types are included. Inclusion of such a line enables direct comparison between the two distributions of item frequencies.
+# Here, we select explosives weapons and plot the relative item frequency for such a weapon and lethal attacks. 
+# The black distribution line indicates the proportion of items when all weapon types are included. 
+# Inclusion of such a line enables direct comparison between the two distributions of item frequencies.
 
 WE <- subset(GTDDTS_FCS_T, 
              items %in% "Weapon=Explosives")
